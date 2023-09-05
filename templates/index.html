@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>JELLOPOP</h1>
+    <input type="text" id="input">
+    <input type="button" value="search" id="go">
+    <p></p>
 </body>
+
+<script>
+    var input = document.getElementById("input");
+    var go = document.getElementById("go");
+    var p = document.querySelector("p");
+    
+    go.addEventListener("click", function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/search', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    p.innerHTML = response.data;
+                } else {
+                    alert("Search failed.");
+                }
+            } else {
+                alert('An Internal error occurred.');
+            }
+        };
+
+        xhr.send(JSON.stringify({
+            query: input.value
+        }));
+    })
+</script>
+
 </html>
