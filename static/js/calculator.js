@@ -9,7 +9,7 @@ input.addEventListener("keyup", function () {
         xhr.open('POST', '/search', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
 
-        xhr.onload = function () {
+        xhr.onload = function () { 
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
                 if (response.success) {
@@ -17,10 +17,10 @@ input.addEventListener("keyup", function () {
                     for (row of response.data) {
                         var button = document.createElement("button");
                         button.innerHTML = "Add";
-                        button.setAttribute("onclick", "add_item(`" + row.NDB_No + "`)");
+                        button.setAttribute("onclick", "add_item(`" + row.id + "`)");
                         
                         var span = document.createElement("span");
-                        span.innerHTML = " " + row.Descrip;
+                        span.innerHTML = " " + row.name;
 
                         p.appendChild(document.createElement("br"));
                         p.appendChild(button);
