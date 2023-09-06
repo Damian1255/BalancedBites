@@ -31,16 +31,16 @@ def search():
         search_query = search_query.split(' ')
 
         # Building the query
-        query = 'SELECT NDB_No, Descrip FROM ingredients WHERE '
-        for word in search_query:
-            query += f'Descrip LIKE "%{word}%" AND '
-
-        query = query[:-5] + ' LIMIT 100'
+        query = 'SELECT id, name FROM ingredients WHERE '
+        for i in range(len(search_query)):
+            query += f'name LIKE "%{search_query[i]}%"'
+            if i != len(search_query) - 1:
+                query += ' AND '
         
         # Fetching the data from the database
         results = []
         for row in db.fetch(query):
-            results.append({'NDB_No': row[0], 'Descrip': row[1].capitalize()})
+            results.append({'id': row[0], 'name': row[1].capitalize()})
             
         return jsonify({'success': True, 'data': results})
     else:
@@ -49,7 +49,7 @@ def search():
 @app.route('/fetch/<string:ndb_no>', methods=['POST', 'GET'])
 def fetch(ndb_no):
     # Fetching the data from the database
-    query = f'SELECT * FROM ingredients WHERE NDB_No = "{ndb_no}"'
+    query = f'SELECT * FROM ingredients WHERE id = "{ndb_no}"'
     results = db.fetch(query)
 
     # Checking if the ingredient exists
