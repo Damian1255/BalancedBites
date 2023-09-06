@@ -40,11 +40,24 @@ def search():
         # Fetching the data from the database
         results = []
         for row in db.fetch(query):
-            results.append({'NDB_No': row[0], 'Descrip': row[1]})
+            results.append({'NDB_No': row[0], 'Descrip': row[1].capitalize()})
             
         return jsonify({'success': True, 'data': results})
     else:
         return redirect(url_for('index'))
-    
+
+@app.route('/fetch/<string:ndb_no>', methods=['POST', 'GET'])
+def fetch(ndb_no):
+    # Fetching the data from the database
+    query = f'SELECT * FROM ingredients WHERE NDB_No = "{ndb_no}"'
+    results = db.fetch(query)
+
+    # Checking if the ingredient exists
+    if len(results) == 0:
+        return jsonify({'success': False, 'message': 'Ingredient not found'})
+
+    # Returning the data
+    return jsonify({'success': True, 'data': results[0]})
+
 if __name__ == '__main__':
     app.run(debug=True)
