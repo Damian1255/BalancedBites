@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,41 @@
 </head>
 
 <body>
-    <h1>SEARCH</h1>
-    <input type="text" id="input">
-    <input type="button" value="search" id="go">
-    <p></p>
+    <div class="wrapper">
+        <div class="content">
+
+            <header class="main-header">
+                <div class="layers">
+                    <div class="layer__header">
+                        <div class="layers__caption">Welcome to </div>
+                        <div class="layers__title">BalancedBites</div>
+                    </div>
+                    <div class="layer layers__base">
+                        <img src="{{url_for('static', filename='img/layer-base.png')}}" alt="Image Description">
+                    </div>
+                    <div class="layer layers__middle">
+                        <img src="{{url_for('static', filename='img/layer-middle.png')}}" alt="Image Description">
+                    </div>
+                    <div class="layer layers__front">
+                        <img src="{{url_for('static', filename='img/layer-front.png')}}" alt="Image Description">
+                    </div>
+                </div>
+            </header>
+
+            <article class="main-article">
+                <div class="main-article__content">
+                    <h2 class="main-article__header">To be continued</h2>
+                    <h1>SEARCH</h1>
+                    <input type="text" id="input">
+                    <input type="button" value="search" id="go">
+                    <p></p>
+                </div>
+            </article>
+
+        </div>
+    </div>
 </body>
 
 <script src="{{url_for('static', filename='js/app.js')}}"></script>
+
 </html>
