@@ -18,7 +18,7 @@
 	font-weight: 900;
 }
 body {
-	background-color: #010101;
+	background-color: #F6F1EB;
 	font-family: raleway_f, sans-serif;
 	line-height: 1.55;
 }
@@ -32,7 +32,6 @@ body {
 	z-index: 100;
 	width: 100%;
 	height: calc(var(--index) * 10);
-	background-image: url(../img/ground.png);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
