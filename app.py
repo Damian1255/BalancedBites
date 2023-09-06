@@ -19,6 +19,10 @@ db = DbManager.DBManager(MySQL(app))
 def index():
     return render_template('index.html')
 
+@app.route('/wizard')
+def wizard():
+    return render_template('wizard.html')
+
 @app.route('/search', methods=['POST', 'GET'])
 def search():
     if request.method == 'POST':

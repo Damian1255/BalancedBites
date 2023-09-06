@@ -21,7 +21,7 @@ class DBManager():
         # Creating a connection cursor & executing the query
         cursor =  self.mysql.connection.cursor()
         cursor.execute(query, params)
-        
+
         # Commiting the changes & closing the connection
         self.mysql.connection.commit()
         print(f'Query executed: {cursor.rowcount} rows affected.')
@@ -29,7 +29,4 @@ class DBManager():
         # Closing the connection & returning True
         cursor.close()
         return True
-    
-    
-    
     

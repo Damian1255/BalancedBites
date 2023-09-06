@@ -1,5 +1,4 @@
 var input = document.getElementById("input");
-var go = document.getElementById("go");
 var p = document.querySelector("p");
 
 input.addEventListener("keyup", function () {
