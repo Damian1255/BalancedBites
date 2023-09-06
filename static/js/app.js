@@ -12,7 +12,10 @@ input.addEventListener("keyup", function () {
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.responseText);
                 if (response.success) {
-                    p.innerHTML = response.data;
+                    p.innerHTML = "";
+                    for (row of response.data) {
+                        p.innerHTML += "ID: " + row.NDB_No + " Desc: " + row.Descrip + "<br>";
+                    }
                 } else {
                     alert("Search failed.");
                 }

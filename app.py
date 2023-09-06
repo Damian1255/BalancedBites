@@ -24,10 +24,22 @@ def search():
     if request.method == 'POST':
         # Getting the search query & cleaning it
         search_query = request.json['search_query'].strip()
+        search_query = search_query.split(' ')
 
+        # Building the query
+        query = 'SELECT NDB_No, Descrip FROM ingredients WHERE '
+        for word in search_query:
+            query += f'Descrip LIKE "%{word}%" AND '
+
+        query = query[:-5] + ' LIMIT 100'
+        print(query)
+        
         # Fetching the data from the database
-        data = db.fetch('SELECT NDB_No, Descrip FROM ingredients WHERE Descrip LIKE %s', ('%'+search_query+'%',))
-        return jsonify({'success': True, 'data': data})
+        results = []
+        for row in db.fetch(query):
+            results.append({'NDB_No': row[0], 'Descrip': row[1]})
+            
+        return jsonify({'success': True, 'data': results})
     else:
         return redirect(url_for('index'))
     
