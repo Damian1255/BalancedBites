@@ -1,20 +1,35 @@
 class DBManager():
+    def __init__(self, mysql):
+        self.mysql = mysql
 
-    # Executes a query and returns the data
-    def execute(self, mysql, query, params=None):
+    # Fetches the data from the database
+    def fetch(self, query, params=None):
         # Creating a connection cursor & executing the query
-        cursor =  mysql.connection.cursor()
+        cursor =  self.mysql.connection.cursor()
         cursor.execute(query, params)
 
-        # Fetching the data
+        # Fetching the data & closing the connection
         data = cursor.fetchall()
+        print(f'Query executed: {len(data)} rows returned.')
+
+        # Closing the connection & returning the data
+        cursor.close()
+        return data
+
+    # Executes a query 
+    def execute(self, query, params=None):
+        # Creating a connection cursor & executing the query
+        cursor =  self.mysql.connection.cursor()
+        cursor.execute(query, params)
         
         # Commiting the changes & closing the connection
-        mysql.connection.commit()
-        cursor.close()
+        self.mysql.connection.commit()
+        print(f'Query executed: {cursor.rowcount} rows affected.')
 
-        print(f'Query executed: {len(data)} rows returned.')
-        return data
+        # Closing the connection & returning True
+        cursor.close()
+        return True
+    
     
     
     

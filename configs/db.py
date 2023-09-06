@@ -1,4 +1,4 @@
-MYSQL_HOST = 'localhost'
-MYSQL_USER = 'root'
-MYSQL_PASSWORD = ''
-MYSQL_DB = 'balancedbitesdb'
+MYSQL_HOST = 'sql12.freesqldatabase.com'
+MYSQL_USER = 'sql12644677'
+MYSQL_PASSWORD = '9qRI59IRdg'
+MYSQL_DB = 'sql12644677'
