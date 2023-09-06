@@ -32,7 +32,6 @@ def search():
             query += f'Descrip LIKE "%{word}%" AND '
 
         query = query[:-5] + ' LIMIT 100'
-        print(query)
         
         # Fetching the data from the database
         results = []
