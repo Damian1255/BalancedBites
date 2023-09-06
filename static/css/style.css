@@ -7,3 +7,17 @@ body {
 	margin-top: 30px;
 	margin-left: -150px;
 }
+
+.main-image {
+	margin-top: 40px;
+	width: 550px;
+}
+
+.content {
+	margin-top: 150px;
+	text-align: center;	
+}
+
+.learn-more {
+	width: 70px;
+}

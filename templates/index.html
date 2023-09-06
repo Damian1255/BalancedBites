@@ -18,26 +18,25 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-6">
-                <img src="{{url_for('static', filename='img/logo.png')}}" alt="Your Logo" class="logo">
+            <div class="col-md-6">
+                <img src="{{url_for('static', filename='img/logo.png')}}" alt="balanced bites" class="logo">
             </div>
         </div>
     </div>
-    <div class="wrapper">
-        <div class="content">
-            <header class="main-header">
-                <div class="layers">
-                    <div class="layer__header">
-                        <div class="layers__caption">Welcome to </div>
-                        <div class="layers__title">BalancedBites</div>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{url_for('static', filename='img/main_image.png')}}" alt="image" class="main-image">
+            </div>
+            <div class="col-md-6">
+                <div class="content">
+                    <header class="main-header">
+                        <h1>The Art of Eating Well,<br> Balance your Bite</h1>
+                    </header>
+                    <p>Learn More</p>
+                    <img src="{{url_for('static', filename='img/learn_more.png')}}" alt="image" class="learn-more">
                 </div>
-            </header>
-            <article class="main-article">
-                <div class="main-article__content">
-                    <h2 class="main-article__header">To be continued</h2>
-                </div>
-            </article>
+            </div>
         </div>
     </div>
 </body>
