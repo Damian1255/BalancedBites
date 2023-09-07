@@ -201,7 +201,6 @@ function update_item_list() {
     document.getElementById('caffeine_mg').textContent = caffeine_mg.toFixed(2) + " mg";
     document.getElementById('water_g').textContent = water_g.toFixed(2) + " g";
 
-
     document.getElementById('item_count').textContent = item_list.length;
     document.getElementById('serving_size').textContent = total_servering_size_g.toFixed(2) + " g";
     document.getElementById('total_calories').textContent = calories_cal.toFixed(2) + " cal";
@@ -229,6 +228,8 @@ function remove_item(id) {
     update_item_list();
 }
 
+dialog = document.getElementById("wizardDialog");
+
 function optimize_items(){
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/optimize', true);
@@ -240,7 +241,18 @@ function optimize_items(){
             if (response.success) {
                 item_list = response.item_list;
                 console.log(response.changes_made)
-                console.log(response.changes_count)
+                
+                if (response.changes_made) {
+                    document.getElementById('wiz_title').textContent = "The Wizard has made some changes!";
+                    document.getElementById('wiz_changes').textContent = response.changes_made + " has been made!";
+                }
+                else {
+                    document.getElementById('wiz_title').textContent = "The Wizard couldn't find any changes to make.";
+                    document.getElementById('wiz_changes').textContent = "Try adding more items to your list!";
+                }  
+
+                document.getElementById('wiz_amount').textContent = response.changes_count;
+                dialog.showModal();
                 update_item_list();
             } else {
                 alert("Unable to optimize items.");

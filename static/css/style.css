@@ -172,13 +172,13 @@ hr {
 	overflow-y: auto;
 }
 
-#item-list li{
+#item-list li {
 	font-size: 15px;
 	margin-top: 10px;
 	width: 100%;
 }
 
-#item-list li input{
+#item-list li input {
 	border: none;
 	border-radius: 20px;
 	width: 70px;
@@ -190,8 +190,8 @@ hr {
 	border: none;
 	background-color: white;
 	padding: 3px 16px;
-    text-align: center;
-    border-radius: 20px;
+	text-align: center;
+	border-radius: 20px;
 	float: right;
 	transition: all 0.3s ease-in-out;
 }
@@ -201,11 +201,11 @@ hr {
 }
 
 #item-list li button img {
-    width: 15px;
-    height: 17px;
+	width: 15px;
+	height: 17px;
 }
 
-.total p{
+.total p {
 	margin-bottom: 4px;
 	font-size: 14px;
 	font-weight: 600;
@@ -255,3 +255,186 @@ hr {
 		transform: rotate(360deg);
 	}
 }
+
+/*Dialog Styles*/
+dialog {
+	padding: 1rem 3rem;
+	background: white;
+	max-width: 400px;
+	padding-top: 2rem;
+	border-radius: 20px;
+	border: 0;
+	box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+	animation: fadeIn 1s ease both;
+
+	&::backdrop {
+		animation: fadeIn 1s ease both;
+		background: rgb(255 255 255 / 40%);
+		z-index: 2;
+		backdrop-filter: blur(20px);
+	}
+
+	.x {
+		filter: grayscale(1);
+		border: none;
+		background: none;
+		position: absolute;
+		top: 15px;
+		right: 10px;
+		transition: ease filter, transform 0.3s;
+		cursor: pointer;
+		transform-origin: center;
+
+		&:hover {
+			filter: grayscale(0);
+			transform: scale(1.1);
+		}
+	}
+
+	a {
+		&:visited {
+			color: rgb(var(--vs-primary));
+		}
+
+		button.primary {
+			display: inline-block;
+			font-size: 0.8rem;
+			color: #fff !important;
+			background: rgb(var(--vs-primary) / 100%);
+			padding: 13px 25px;
+			border-radius: 17px;
+			transition: background-color 0.1s ease;
+			box-sizing: border-box;
+			transition: all 0.25s ease;
+			border: 0;
+			cursor: pointer;
+			box-shadow: 0 10px 20px -10px rgb(var(--vs-primary) / 50%);
+
+			&:hover {
+				box-shadow: 0 20px 20px -10px rgb(var(--vs-primary) / 50%);
+				transform: translateY(-5px);
+			}
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
+
+		@media only screen and (max-width: 479px) {
+			.modal-2 h2 {
+				font-size: 24px;
+			}
+		}
+
+		@media only screen and (max-width: 479px) {
+			.modal-2 .product-details-content .pro-details-quality .pro-details-cart .add-cart {
+				font-size: 12px;
+			}
+		}
+
+		.modal-open .modal-2 {
+			overflow-x: hidden !important;
+			overflow-y: auto !important;
+		}
+
+		@-webkit-keyframes menu-animation {
+			0% {
+				opacity: 0;
+				-webkit-transform: scale(0.04) translateY(300%);
+				transform: scale(0.04) translateY(300%);
+			}
+
+			40% {
+				-webkit-transform: scale(0.04) translateY(0);
+				transform: scale(0.04) translateY(0);
+				-webkit-transition: ease-out;
+				transition: ease-out;
+			}
+
+			40% {
+				-webkit-transform: scale(0.04) translateY(0);
+				transform: scale(0.04) translateY(0);
+			}
+
+			60% {
+				opacity: 1;
+				-webkit-transform: scale(0.02) translateY(0px);
+				transform: scale(0.02) translateY(0px);
+			}
+
+			61% {
+				opacity: 1;
+				-webkit-transform: scale(0.04) translateY(0px);
+				transform: scale(0.04) translateY(0px);
+			}
+
+			99.9% {
+				opacity: 1;
+				height: 0;
+				padding-bottom: 100%;
+				border-radius: 100%;
+			}
+
+			100% {
+				opacity: 1;
+				-webkit-transform: scale(2) translateY(0px);
+				transform: scale(2) translateY(0px);
+				height: 100%;
+				padding-bottom: 0;
+				border-radius: 0;
+			}
+		}
+
+		@keyframes menu-animation {
+			0% {
+				opacity: 0;
+				-webkit-transform: scale(0.04) translateY(300%);
+				transform: scale(0.04) translateY(300%);
+			}
+
+			40% {
+				-webkit-transform: scale(0.04) translateY(0);
+				transform: scale(0.04) translateY(0);
+				-webkit-transition: ease-out;
+				transition: ease-out;
+			}
+
+			40% {
+				-webkit-transform: scale(0.04) translateY(0);
+				transform: scale(0.04) translateY(0);
+			}
+
+			60% {
+				opacity: 1;
+				-webkit-transform: scale(0.02) translateY(0px);
+				transform: scale(0.02) translateY(0px);
+			}
+
+			61% {
+				opacity: 1;
+				-webkit-transform: scale(0.04) translateY(0px);
+				transform: scale(0.04) translateY(0px);
+			}
+
+			99.9% {
+				opacity: 1;
+				height: 0;
+				padding-bottom: 100%;
+				border-radius: 100%;
+			}
+
+			100% {
+				opacity: 1;
+				-webkit-transform: scale(2) translateY(0px);
+				transform: scale(2) translateY(0px);
+				height: 100%;
+				padding-bottom: 0;
+				border-radius: 0;
+			}
+		}

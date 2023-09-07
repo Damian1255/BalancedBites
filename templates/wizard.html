@@ -85,7 +85,11 @@
             </div>
         </div>
     </div>
-
+    <dialog id="wizardDialog">
+        <h2><span id="wiz_title"></span></h2>
+        <p><span id="wiz_amount"></span></p>
+        <a onclick="document.getElementById('wizardDialog').close();" aria-label="close" class="x">❌</a>
+    </dialog>    
 </body>
 <script src="{{url_for('static', filename='js/app.js')}}"></script>
 <script src="{{url_for('static', filename='js/calculator.js')}}"></script>
