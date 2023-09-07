@@ -7,27 +7,28 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
 
-     <!-- Bootstrap -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- TEMP CSS -->
-     <style>
+    <style>
         #result-container {
             background-color: white;
             position: absolute;
             max-height: 300px;
             overflow: auto;
-            width: 600px;
+            width: 800px;
             z-index: 10;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
         }
 
         #search-box {
             background-color: white;
         }
-        
+
         #item-list {
             background-color: whitesmoke;
         }
@@ -35,50 +36,50 @@
         #total-list {
             background-color: gainsboro;
         }
-     </style>
+    </style>
 </head>
 
 <body>
     <div class="row">
         <div class="col-md-12" id="search-box">
             <h1>SEARCH</h1>
-            <input type="text" id="input">
-            <p id="result-container">
+            <input type="text" id="input" onfocus="document.getElementById('result-container').style.display = 'block'">
+            <div id="result-container">
 
-            </p>
+            </div>
         </div>
         <div class="col-md-6" id="item-list">
-            
+
         </div>
         <div class="col-md-6" id="total-list">
             <ul>
-                <li>calories_cal: <span id="calories_cal"></span></li>
-                <li>total_fat_g: <span id="total_fat_g"></span></li>
-                <li>saturated_fat_g: <span id="saturated_fat_g"></span></li>
-                <li>cholesterol_mg: <span id="cholesterol_mg"></span></li>
-                <li>sodium_mg: <span id="sodium_mg"></span></li>
-                <li>vitamin_a_iu: <span id="vitamin_a_iu"></span></li>
-                <li>vitamin_b12_mcg: <span id="vitamin_b12_mcg"></span></li>
-                <li>vitamin_b6_mg: <span id="vitamin_b6_mg"></span></li>
-                <li>vitamin_c_mg: <span id="vitamin_c_mg"></span></li>
-                <li>vitamin_d_iu: <span id="vitamin_d_iu"></span></li>
-                <li>vitamin_e_mg: <span id="vitamin_e_mg"></span></li>
-                <li>vitamin_k_mcg: <span id="vitamin_k_mcg"></span></li>
-                <li>calcium_mg: <span id="calcium_mg"></span></li>
-                <li>iron_mg: <span id="iron_mg"></span></li>
-                <li>magnesium_mg: <span id="magnesium_mg"></span></li>
-                <li>potassium_mg: <span id="potassium_mg"></span></li>
-                <li>protein_g: <span id="protein_g"></span></li>
-                <li>carbohydrate_g: <span id="carbohydrate_g"></span></li>
-                <li>fiber_g: <span id="fiber_g"></span></li>
-                <li>sugars_g: <span id="sugars_g"></span></li>
-                <li>glucose_g: <span id="glucose_g"></span></li>
-                <li>lactose_g: <span id="lactose_g"></span></li>
-                <li>sucrose_g: <span id="sucrose_g"></span></li>
-                <li>alcohol_g: <span id="alcohol_g"></span></li>
-                <li>caffeine_mg: <span id="caffeine_mg"></span></li>
-                <li>water_g: <span id="water_g"></span></li>
-              </ul>
+                <li>Calories: <span id="calories_cal"></span></li>
+                <li>Total fat: <span id="total_fat_g"></span></li>
+                <li>Saturated fat: <span id="saturated_fat_g"></span></li>
+                <li>Cholesterol: <span id="cholesterol_mg"></span></li>
+                <li>Sodium: <span id="sodium_mg"></span></li>
+                <li>Vitamin a: <span id="vitamin_a_iu"></span></li>
+                <li>Vitamin b12: <span id="vitamin_b12_mcg"></span></li>
+                <li>Vitamin b6: <span id="vitamin_b6_mg"></span></li>
+                <li>Vitamin c: <span id="vitamin_c_mg"></span></li>
+                <li>Vitamin d: <span id="vitamin_d_iu"></span></li>
+                <li>Vitamin e: <span id="vitamin_e_mg"></span></li>
+                <li>Vitamin k: <span id="vitamin_k_mcg"></span></li>
+                <li>Calcium: <span id="calcium_mg"></span></li>
+                <li>Iron: <span id="iron_mg"></span></li>
+                <li>Magnesium: <span id="magnesium_mg"></span></li>
+                <li>Potassium: <span id="potassium_mg"></span></li>
+                <li>Protein: <span id="protein_g"></span></li>
+                <li>Carbohydrate: <span id="carbohydrate_g"></span></li>
+                <li>Fiber: <span id="fiber_g"></span></li>
+                <li>Sugars: <span id="sugars_g"></span></li>
+                <li>Glucose: <span id="glucose_g"></span></li>
+                <li>Lactose: <span id="lactose_g"></span></li>
+                <li>Sucrose: <span id="sucrose_g"></span></li>
+                <li>Alcohol: <span id="alcohol_g"></span></li>
+                <li>Caffeine: <span id="caffeine_mg"></span></li>
+                <li>Water: <span id="water_g"></span></li>
+            </ul>
         </div>
     </div>
 </body>

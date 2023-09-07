@@ -1,7 +1,7 @@
 var item_list = [];
 
 var input = document.getElementById("input");
-var p = document.querySelector("p");
+var p = document.getElementById("result-container");
 
 input.addEventListener("keyup", function () {
     p.style.display = "block";
@@ -23,9 +23,9 @@ input.addEventListener("keyup", function () {
                         var span = document.createElement("span");
                         span.innerHTML = " " + row.name;
 
-                        p.appendChild(document.createElement("br"))
                         p.appendChild(span);
                         p.appendChild(button);
+                        p.appendChild(document.createElement("br"))
                     }
                 } else {
                     alert("Search failed.");
@@ -44,6 +44,12 @@ input.addEventListener("keyup", function () {
     }
 });
 
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function (event) {
+    if (event.target != input) {
+        p.style.display = "none";
+    }
+}
 
 function add_item(id) {
     // check if item already exists in item_list
@@ -52,6 +58,8 @@ function add_item(id) {
             // if item already exists, add serving size
             item.serving_size_g += 100;
             update_item_list();
+            p.style.display = "none";
+
             return;
         }
     }
@@ -75,6 +83,7 @@ function add_item(id) {
     };
 
     xhr.send();
+    p.style.display = "none";
 }
 
 function update_item_list() {
@@ -159,32 +168,32 @@ function update_item_list() {
         water_g += item.water_g / 100 * serving_size_g;
     }
 
-    document.getElementById('calories_cal').textContent = calories_cal.toFixed(2);
-    document.getElementById('total_fat_g').textContent = total_fat_g.toFixed(2);
-    document.getElementById('saturated_fat_g').textContent = saturated_fat_g.toFixed(2);
-    document.getElementById('cholesterol_mg').textContent = cholesterol_mg.toFixed(2);
-    document.getElementById('sodium_mg').textContent = sodium_mg.toFixed(2);
-    document.getElementById('vitamin_a_iu').textContent = vitamin_a_iu.toFixed(2);
-    document.getElementById('vitamin_b12_mcg').textContent = vitamin_b12_mcg.toFixed(2);
-    document.getElementById('vitamin_b6_mg').textContent = vitamin_b6_mg.toFixed(2);
-    document.getElementById('vitamin_c_mg').textContent = vitamin_c_mg.toFixed(2);
-    document.getElementById('vitamin_d_iu').textContent = vitamin_d_iu.toFixed(2);
-    document.getElementById('vitamin_e_mg').textContent = vitamin_e_mg.toFixed(2);
-    document.getElementById('vitamin_k_mcg').textContent = vitamin_k_mcg.toFixed(2);
-    document.getElementById('calcium_mg').textContent = calcium_mg.toFixed(2);
-    document.getElementById('iron_mg').textContent = iron_mg.toFixed(2);
-    document.getElementById('magnesium_mg').textContent = magnesium_mg.toFixed(2);
-    document.getElementById('potassium_mg').textContent = potassium_mg.toFixed(2);
-    document.getElementById('protein_g').textContent = protein_g.toFixed(2);
-    document.getElementById('carbohydrate_g').textContent = carbohydrate_g.toFixed(2);
-    document.getElementById('fiber_g').textContent = fiber_g.toFixed(2);
-    document.getElementById('sugars_g').textContent = sugars_g.toFixed(2);
-    document.getElementById('glucose_g').textContent = glucose_g.toFixed(2);
-    document.getElementById('lactose_g').textContent = lactose_g.toFixed(2);
-    document.getElementById('sucrose_g').textContent = sucrose_g.toFixed(2);
-    document.getElementById('alcohol_g').textContent = alcohol_g.toFixed(2);
-    document.getElementById('caffeine_mg').textContent = caffeine_mg.toFixed(2);
-    document.getElementById('water_g').textContent = water_g.toFixed(2);
+    document.getElementById('calories_cal').textContent = calories_cal.toFixed(2) + " cal";
+    document.getElementById('total_fat_g').textContent = total_fat_g.toFixed(2) + " g";
+    document.getElementById('saturated_fat_g').textContent = saturated_fat_g.toFixed(2) + " g";
+    document.getElementById('cholesterol_mg').textContent = cholesterol_mg.toFixed(2) + " mg";
+    document.getElementById('sodium_mg').textContent = sodium_mg.toFixed(2) + " mg";
+    document.getElementById('vitamin_a_iu').textContent = vitamin_a_iu.toFixed(2) + " IU";
+    document.getElementById('vitamin_b12_mcg').textContent = vitamin_b12_mcg.toFixed(2) + " mcg";
+    document.getElementById('vitamin_b6_mg').textContent = vitamin_b6_mg.toFixed(2) + " mg";
+    document.getElementById('vitamin_c_mg').textContent = vitamin_c_mg.toFixed(2) + " mg";
+    document.getElementById('vitamin_d_iu').textContent = vitamin_d_iu.toFixed(2) + " IU";
+    document.getElementById('vitamin_e_mg').textContent = vitamin_e_mg.toFixed(2) + " mg";
+    document.getElementById('vitamin_k_mcg').textContent = vitamin_k_mcg.toFixed(2) + " mcg";
+    document.getElementById('calcium_mg').textContent = calcium_mg.toFixed(2) + " mg";
+    document.getElementById('iron_mg').textContent = iron_mg.toFixed(2) + " mg";
+    document.getElementById('magnesium_mg').textContent = magnesium_mg.toFixed(2) + " mg";
+    document.getElementById('potassium_mg').textContent = potassium_mg.toFixed(2) + " mg";
+    document.getElementById('protein_g').textContent = protein_g.toFixed(2) + " g";
+    document.getElementById('carbohydrate_g').textContent = carbohydrate_g.toFixed(2) + " g";
+    document.getElementById('fiber_g').textContent = fiber_g.toFixed(2) + " g";
+    document.getElementById('sugars_g').textContent = sugars_g.toFixed(2) + " g";
+    document.getElementById('glucose_g').textContent = glucose_g.toFixed(2) + " g";
+    document.getElementById('lactose_g').textContent = lactose_g.toFixed(2) + " g";
+    document.getElementById('sucrose_g').textContent = sucrose_g.toFixed(2) + " g";
+    document.getElementById('alcohol_g').textContent = alcohol_g.toFixed(2) + " g";
+    document.getElementById('caffeine_mg').textContent = caffeine_mg.toFixed(2) + " mg";
+    document.getElementById('water_g').textContent = water_g.toFixed(2) + " g";
 }
 
 function change_serving_size(id, serving_size_g) {
