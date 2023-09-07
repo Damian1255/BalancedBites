@@ -121,7 +121,12 @@ function update_item_list() {
         textbox.setAttribute("step", "1");
         textbox.setAttribute("onchange", "change_serving_size(" + item.id + ", this.value)");
 
+        var button = document.createElement("button");
+        button.innerHTML = "Remove";
+        button.setAttribute("onclick", "remove_item(" + item.id + ")");
+        
         li.appendChild(textbox);
+        li.appendChild(button);
         list.appendChild(li);
         
         serving_size_g = item.serving_size_g;
@@ -187,6 +192,17 @@ function change_serving_size(id, serving_size_g) {
     for (item of item_list) {
         if (item.id == id) {
             item.serving_size_g = parseFloat(serving_size_g);
+            break;
+        }
+    }
+    update_item_list();
+}
+
+function remove_item(id) {
+    // search item by id in item_list and remove it
+    for (var i = 0; i < item_list.length; i++) {
+        if (item_list[i].id == id) {
+            item_list.splice(i, 1);
             break;
         }
     }
