@@ -4,8 +4,10 @@ var input = document.getElementById("input");
 var p = document.getElementById("result-container");
 
 input.addEventListener("keyup", function () {
-    p.style.display = "block";
+    p.style.display = "flex";
     if (input.value.length >= 2) {
+        p.innerHTML = "<div class='lds-ring'><div></div><div></div><div></div><div></div></div>";
+        
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/search', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -23,9 +25,9 @@ input.addEventListener("keyup", function () {
                         var span = document.createElement("span");
                         span.innerHTML = " " + row.name;
 
+                        span.appendChild(button);
+                        span.appendChild(document.createElement("br"))
                         p.appendChild(span);
-                        p.appendChild(button);
-                        p.appendChild(document.createElement("br"))
                     }
                 } else {
                     alert("Search failed.");

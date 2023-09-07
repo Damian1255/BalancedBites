@@ -18,6 +18,10 @@
         #result-container {
             background-color: white;
             position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
             max-height: 300px;
             overflow: auto;
             width: 800px;
@@ -36,6 +40,51 @@
         #total-list {
             background-color: gainsboro;
         }
+
+        .lds-ring {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+        }
+
+        .lds-ring div {
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            margin: 6px;
+            border: 6px solid gray;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: gray transparent transparent transparent;
+        }
+
+        .lds-ring div:nth-child(1) {
+            animation-delay: -0.45s;
+        }
+
+        .lds-ring div:nth-child(2) {
+            animation-delay: -0.3s;
+        }
+
+        .lds-ring div:nth-child(3) {
+            animation-delay: -0.15s;
+        }
+
+        @keyframes lds-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 
@@ -43,7 +92,7 @@
     <div class="row">
         <div class="col-md-12" id="search-box">
             <h1>SEARCH</h1>
-            <input type="text" id="input" onfocus="document.getElementById('result-container').style.display = 'block'">
+            <input type="text" id="input" onfocus="document.getElementById('result-container').style.display = 'flex'">
             <div id="result-container">
 
             </div>
