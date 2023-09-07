@@ -1,5 +1,5 @@
 var item_list = [];
-
+var wiz_btn = document.getElementById("choice");
 var input = document.getElementById("input");
 var p = document.getElementById("result-container");
 
@@ -170,9 +170,13 @@ function update_item_list() {
     }
 
     list.appendChild(ordered_list);
-
     if (item_list.length == 0) {
-        list.innerHTML = "List is empty. Start by <a href='javascript:void(0);' onclick='document.getElementById(`input`).focus()'>searching</a> for an ingredient.";
+        // disable wizard button
+        wiz_btn.disabled = true;
+        list.innerHTML = "List is empty. Start by <a href='javascript:void(0);' onclick='document.getElementById(`input`).focus()'>searching</a> for an ingredient!";
+    } else {
+        // enable wizard button
+        wiz_btn.disabled = false;
     }
 
     document.getElementById('total_fat_g').textContent = total_fat_g.toFixed(2) + " g";
@@ -243,11 +247,15 @@ function optimize_items(){
                 console.log(response.changes_made)
                 
                 if (response.changes_made) {
-                    document.getElementById('wiz_title').textContent = "We have made some changes!";
-                    document.getElementById('wiz_amount').textContent = response.changes_count + " change(s) has been made! Your calories have been reduced to " + response.new_cal.toFixed(2) + " cal!";
+                    old_calories = document.getElementById('total_calories').textContent;
+
+                    document.getElementById('wiz_title').textContent = "Wizard has made some changes!";
+                    document.getElementById('wiz_amount').innerHTML = response.changes_count + 
+                    " change(s) has been made! Your calories have been reduced from: " +
+                    "<p style='margin-top:8px'><b>" + old_calories + "</b> > <b>" + response.new_cal.toFixed(2) + " cal</b></p>";
                 }
                 else {
-                    document.getElementById('wiz_title').textContent = "We couldn't find any changes to make.";
+                    document.getElementById('wiz_title').textContent = "Wizard has nothing to change :(";
                     document.getElementById('wiz_amount').textContent = "Try adding more items to your list!";
                 }  
 
