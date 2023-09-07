@@ -17,29 +17,21 @@ input.addEventListener("keyup", function () {
                 var response = JSON.parse(xhr.responseText);
                 if (response.success) {
                     p.innerHTML = "";
-                    for (row of response.data) {
-                        var button = document.createElement("button");
-                        button.innerHTML = "Add";
-                        button.setAttribute("onclick", "add_item(`" + row.id + "`)");
-                        
+                    for (row of response.data) {                        
                         var span = document.createElement("span");
                         span.innerHTML = " " + row.name;
+                        span.setAttribute("onclick", "add_item(" + row.id + ")");
 
-                        span.appendChild(button);
                         span.appendChild(document.createElement("br"))
                         p.appendChild(span);
                     }
-                } else {
-                    alert("Search failed.");
                 }
             } else {
-                alert('An Internal error occurred.');
+                p.innerHTML = "An Internal error occurred. Please try again later.";
             }
         };
 
-        xhr.send(JSON.stringify({
-            search_query: input.value
-        }));
+        xhr.send(JSON.stringify({search_query: input.value}));
     }
     else {
         p.innerHTML = "";
@@ -122,7 +114,7 @@ function update_item_list() {
 
     for (item of item_list) {
         var li = document.createElement("li");
-        li.innerHTML = item.name
+        li.innerHTML = item.name + " (" + item.serving_size_g + " g) ";
 
         var textbox = document.createElement("input");
         textbox.setAttribute("type", "number");
