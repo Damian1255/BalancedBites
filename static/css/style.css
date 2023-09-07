@@ -7,30 +7,109 @@ body {
 	margin-top: 30px;
 	margin-left: -150px;
 	max-width: 100%;
-    height: auto;
+	height: auto;
 }
 
 .main-image {
 	margin-top: 40px;
 	width: 550px;
-	margin-bottom: 40px;
+	margin-bottom: 80px;
 	max-width: 100%;
-    height: auto;
+	height: auto;
 }
 
 .content {
 	margin-top: 150px;
 	text-align: center;
-	margin-bottom: 40px;
+	margin-bottom: 80px;
 }
 
 .learn-more {
 	width: 70px;
 	max-width: 100%;
-    height: auto;
+	height: auto;
 }
 
 hr {
 	background-color: #000;
 	width: 90%;
+}
+
+#next-section {
+	height: 550px;
+}
+
+#next-section .row {
+	display: flex;
+	align-items: center;
+}
+
+#next-section h1 {
+	margin-top: 100px;
+	margin-bottom: 30px;
+	font-size: 60px;
+}
+
+.about {
+	margin-top: 100px;
+	margin-bottom: 10px;
+}
+
+.laptop {
+	margin-top: 120px;
+}
+
+#wizard {
+	background-color: #9CAFBF;
+	border-radius: 50px;
+	border-color: #9CAFBF;
+	width: 80%;
+	margin-top: 20px;
+}
+
+#next-section p {
+	width: 80%;
+	text-align: center;
+}
+
+#food {
+	background-color: #E2E2E2;
+	border-radius: 30px;
+}
+
+#choice {
+	background-color: #9CAFBF;
+	border-color: #9CAFBF;
+	border-radius: 50px;
+	margin-top: 30px;
+}
+
+.caloriewizard {
+	margin-top: 80px;
+	margin-bottom: 20px;
+	font-size: 45px;
+}
+
+.form-control {
+	margin-bottom: 30px;
+}
+
+#receipt {
+	background-image: url(../img/receipt.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin-top: 80px;
+	padding-bottom: 100px;
+	position: relative;
+}
+
+.receipt-content {
+	border-radius: 10px;
+	padding: 20px;
+	position: absolute;
+	margin-top: 100px;
+	margin-left: 114px;
+	overflow-y: auto;
+	width: 55%;
+	font-size: 5px;
 }

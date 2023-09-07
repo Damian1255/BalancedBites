@@ -42,7 +42,27 @@
     </div>
     <hr>
     <div class="container" id="next-section">
-        <!-- Next section content -->
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h1>About</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{{url_for('static', filename='img/logo.png')}}" alt="balanced bites" class="about">
+                    </div>
+                </div>
+                <p>
+                    Welcome to BalancedBites, where we simplify healthy living through personalized meal planning. Our
+                    Meal Planner and Calorie Wizard help you make nutritious and delicious food choices. We're your
+                    partners in your journey to a healthier you, offering insights, recipes, and tips. Join us on the
+                    path to balanced living—one bite at a time.</p>
+                <a class="btn btn-primary btn-lg" id="wizard" href="wizard.html" role="button">Try Calorie Wizard</a>
+            </div>
+            <div class="col-md-6">
+                <img src="{{url_for('static', filename='img/laptop.png')}}" alt="balanced bites" class="laptop">
+            </div>
+        </div>
     </div>
 </body>
 <script src="{{url_for('static', filename='js/app.js')}}"></script>
