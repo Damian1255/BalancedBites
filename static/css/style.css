@@ -97,28 +97,19 @@ hr {
 #receipt {
 	background-image: url(../img/receipt.png);
 	background-size: cover;
-	/* Adjust to "contain" or "cover" as needed */
 	background-repeat: no-repeat;
 	margin-top: 80px;
-	/* Add margin to create space for the background image */
 	padding-bottom: 100px;
-	/* Increase the padding to extend the height */
 	position: relative;
-	/* Add relative positioning to position the receipt content */
 }
 
 .receipt-content {
-	background-color: black;
-	/* Add a semi-transparent background for readability */
 	border-radius: 10px;
 	padding: 20px;
-	/* Adjust the padding as needed */
 	position: absolute;
-	/* Add absolute positioning to place the content inside the background */
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	margin-top: 100px;
+	margin-left: 114px;
 	overflow-y: auto;
-	/* Add scroll if content overflows */
+	width: 55%;
+	font-size: 5px;
 }
