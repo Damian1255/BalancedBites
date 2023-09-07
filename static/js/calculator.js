@@ -243,15 +243,14 @@ function optimize_items(){
                 console.log(response.changes_made)
                 
                 if (response.changes_made) {
-                    document.getElementById('wiz_title').textContent = "The Wizard has made some changes!";
-                    document.getElementById('wiz_changes').textContent = response.changes_made + " has been made!";
+                    document.getElementById('wiz_title').textContent = "We have made some changes!";
+                    document.getElementById('wiz_amount').textContent = response.changes_count + " has been made! Your calories have been reduced to " + response.new_cal.toFixed(2) + " cal!";
                 }
                 else {
-                    document.getElementById('wiz_title').textContent = "The Wizard couldn't find any changes to make.";
-                    document.getElementById('wiz_changes').textContent = "Try adding more items to your list!";
+                    document.getElementById('wiz_title').textContent = "We couldn't find any changes to make.";
+                    document.getElementById('wiz_amount').textContent = "Try adding more items to your list!";
                 }  
 
-                document.getElementById('wiz_amount').textContent = response.changes_count;
                 dialog.showModal();
                 update_item_list();
             } else {

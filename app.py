@@ -124,7 +124,7 @@ def optimize():
             changes_made = True
             changes_count += 1
 
-    return jsonify({'success': True, 'item_list': item_list, 'changes_made': changes_made, 'changes_count': changes_count})
+    return jsonify({'success': True, 'item_list': item_list, 'changes_made': changes_made, 'changes_count': changes_count, 'new_cal': sum([item['calories_cal'] for item in item_list])})
 
 
 def remove_common_words(text):
