@@ -87,6 +87,8 @@ function update_item_list() {
     var total_list = document.getElementById("total-list")
     list.innerHTML = "";
 
+    var total_servering_size_g = 0;
+
     var calories_cal = 0;
     var total_fat_g = 0;
     var saturated_fat_g = 0;
@@ -114,9 +116,10 @@ function update_item_list() {
     var caffeine_mg = 0;
     var water_g = 0;
 
+    ordered_list = document.createElement("ol");
     for (item of item_list) {
         var li = document.createElement("li");
-        li.innerHTML = item.name + " (" + item.serving_size_g + " g) ";
+        li.innerHTML = item.name + " ( ";
 
         var textbox = document.createElement("input");
         textbox.setAttribute("type", "number");
@@ -127,14 +130,16 @@ function update_item_list() {
         textbox.setAttribute("onchange", "change_serving_size(" + item.id + ", this.value)");
 
         var button = document.createElement("button");
-        button.innerHTML = "Remove";
+        button.innerHTML = "<img src='static/img/bin.png' alt='Remove' width='20' height='20'>";
         button.setAttribute("onclick", "remove_item(" + item.id + ")");
         
         li.appendChild(textbox);
+        li.innerHTML += " g) ";
         li.appendChild(button);
-        list.appendChild(li);
+        ordered_list.appendChild(li);
         
         serving_size_g = item.serving_size_g;
+        total_servering_size_g += serving_size_g;
         
         calories_cal += item.calories_cal / 100 * serving_size_g;
         total_fat_g += item.total_fat_g / 100 * serving_size_g;
@@ -164,7 +169,12 @@ function update_item_list() {
         water_g += item.water_g / 100 * serving_size_g;
     }
 
-    document.getElementById('calories_cal').textContent = calories_cal.toFixed(2) + " cal";
+    list.appendChild(ordered_list);
+
+    if (item_list.length == 0) {
+        list.innerHTML = "List is empty. Start by <a href='javascript:void(0);' onclick='document.getElementById(`input`).focus()'>searching</a> for an ingredient.";
+    }
+
     document.getElementById('total_fat_g').textContent = total_fat_g.toFixed(2) + " g";
     document.getElementById('saturated_fat_g').textContent = saturated_fat_g.toFixed(2) + " g";
     document.getElementById('cholesterol_mg').textContent = cholesterol_mg.toFixed(2) + " mg";
@@ -190,6 +200,11 @@ function update_item_list() {
     document.getElementById('alcohol_g').textContent = alcohol_g.toFixed(2) + " g";
     document.getElementById('caffeine_mg').textContent = caffeine_mg.toFixed(2) + " mg";
     document.getElementById('water_g').textContent = water_g.toFixed(2) + " g";
+
+
+    document.getElementById('item_count').textContent = item_list.length;
+    document.getElementById('serving_size').textContent = total_servering_size_g.toFixed(2) + " g";
+    document.getElementById('total_calories').textContent = calories_cal.toFixed(2) + " cal";
 }
 
 function change_serving_size(id, serving_size_g) {

@@ -26,9 +26,6 @@ def index():
 def wizard():
     return render_template('wizard.html')
 
-@app.route('/wizard2')
-def wizard2():
-    return render_template('wizard2.html')
 
 @app.route('/search', methods=['POST', 'GET'])
 def search():

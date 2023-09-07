@@ -1,11 +1,21 @@
+h1 {
+	font-family: 'Courier New', Courier, monospace;
+}
+
 body {
 	background-color: #F6F1EB !important;
+}
+
+.main-header h1 {
+	font-size: 1.9rem;
+	font-weight: bold;
+	margin-top: 100px;
+	margin-bottom: 30px;
 }
 
 .logo {
 	width: 180px;
 	margin-top: 30px;
-	margin-left: -150px;
 	max-width: 100%;
 	height: auto;
 }
@@ -65,6 +75,13 @@ hr {
 	border-color: #9CAFBF;
 	width: 80%;
 	margin-top: 20px;
+	font-weight: bold;
+	transition: all 0.3s ease-in-out;
+}
+
+#wizard:hover {
+	background-color: #8BA2AA;
+	border-color: #8BA2AA;
 }
 
 #next-section p {
@@ -82,16 +99,19 @@ hr {
 	border-color: #9CAFBF;
 	border-radius: 50px;
 	margin-top: 30px;
+	font-weight: bold;
+	transition: all 0.3s ease-in-out;
+}
+
+#choice:hover {
+	background-color: #8BA2AA;
+	border-color: #8BA2AA;
 }
 
 .caloriewizard {
 	margin-top: 80px;
 	margin-bottom: 20px;
 	font-size: 45px;
-}
-
-.form-control {
-	margin-bottom: 30px;
 }
 
 #receipt {
@@ -101,15 +121,137 @@ hr {
 	margin-top: 80px;
 	padding-bottom: 100px;
 	position: relative;
+	padding: 20px;
+	font-family: 'Lucida Console', Monaco, monospace;
 }
 
 .receipt-content {
 	border-radius: 10px;
-	padding: 20px;
-	position: absolute;
-	margin-top: 100px;
-	margin-left: 114px;
+	font-size: 12px;
+	max-height: 300px;
 	overflow-y: auto;
-	width: 55%;
-	font-size: 5px;
+}
+
+.receipt-content span {
+	float: right;
+}
+
+#result-container {
+	background-color: white;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	max-height: 300px;
+	overflow: auto;
+	width: 100%;
+	z-index: 10;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+
+#result-container span {
+	padding: 10px 20px;
+	cursor: pointer;
+	width: 100%;
+}
+
+#result-container span:hover {
+	background-color: lightgray;
+}
+
+#search-box {
+	background-color: white;
+}
+
+#item-list {
+	background-color: whitesmoke;
+	border-radius: 20px;
+	margin-top: 20px;
+	padding: 10px;
+	max-height: 380px;
+	overflow-y: auto;
+}
+
+#item-list li{
+	font-size: 15px;
+	margin-top: 10px;
+	width: 100%;
+}
+
+#item-list li input{
+	border: none;
+	border-radius: 20px;
+	width: 70px;
+	padding: 2px 5px;
+	font-size: 15px;
+}
+
+#item-list li button {
+	border: none;
+	background-color: white;
+	padding: 3px 16px;
+    text-align: center;
+    border-radius: 20px;
+	float: right;
+	transition: all 0.3s ease-in-out;
+}
+
+#item-list li button:hover {
+	background-color: lightgray;
+}
+
+#item-list li button img {
+    width: 15px;
+    height: 17px;
+}
+
+.total p{
+	margin-bottom: 4px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.lds-ring {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	width: 40px;
+	height: 40px;
+	margin: 10px;
+}
+
+.lds-ring div {
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	margin: 6px;
+	border: 6px solid gray;
+	border-radius: 50%;
+	animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	border-color: gray transparent transparent transparent;
+}
+
+.lds-ring div:nth-child(1) {
+	animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+	animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+	animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
 }
