@@ -5,16 +5,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- TEMP CSS -->
+    <style>
+        #result-container {
+            background-color: white;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            max-height: 300px;
+            overflow: auto;
+            width: 800px;
+            z-index: 10;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        #result-container span {
+            cursor: pointer;
+            width: 100%;
+        }
+
+        #result-container span:hover {
+            background-color: lightgray;
+        }
+
+        #search-box {
+            background-color: white;
+        }
+
+        #item-list {
+            background-color: whitesmoke;
+        }
+
+        #total-list {
+            background-color: gainsboro;
+        }
+
+        .lds-ring {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+        }
+
+        .lds-ring div {
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            margin: 6px;
+            border: 6px solid gray;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: gray transparent transparent transparent;
+        }
+
+        .lds-ring div:nth-child(1) {
+            animation-delay: -0.45s;
+        }
+
+        .lds-ring div:nth-child(2) {
+            animation-delay: -0.3s;
+        }
+
+        .lds-ring div:nth-child(3) {
+            animation-delay: -0.15s;
+        }
+
+        @keyframes lds-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div style="float: left;">
-        <h1>SEARCH</h1>
-        <input type="text" id="input">
-        <p></p>
-    </div>
-    <div id="item_list" style="float: right;">
-        
+    <div class="row">
+        <div class="col-md-12" id="search-box">
+            <h1>SEARCH</h1>
+            <input type="text" id="input" onfocus="document.getElementById('result-container').style.display = 'flex'">
+            <div id="result-container">
+
+            </div>
+        </div>
+        <div class="col-md-6" id="item-list">
+
+        </div>
+        <div class="col-md-6" id="total-list">
+            <ul>
+                <li>Calories: <span id="calories_cal"></span></li>
+                <li>Total fat: <span id="total_fat_g"></span></li>
+                <li>Saturated fat: <span id="saturated_fat_g"></span></li>
+                <li>Cholesterol: <span id="cholesterol_mg"></span></li>
+                <li>Sodium: <span id="sodium_mg"></span></li>
+                <li>Vitamin a: <span id="vitamin_a_iu"></span></li>
+                <li>Vitamin b12: <span id="vitamin_b12_mcg"></span></li>
+                <li>Vitamin b6: <span id="vitamin_b6_mg"></span></li>
+                <li>Vitamin c: <span id="vitamin_c_mg"></span></li>
+                <li>Vitamin d: <span id="vitamin_d_iu"></span></li>
+                <li>Vitamin e: <span id="vitamin_e_mg"></span></li>
+                <li>Vitamin k: <span id="vitamin_k_mcg"></span></li>
+                <li>Calcium: <span id="calcium_mg"></span></li>
+                <li>Iron: <span id="iron_mg"></span></li>
+                <li>Magnesium: <span id="magnesium_mg"></span></li>
+                <li>Potassium: <span id="potassium_mg"></span></li>
+                <li>Protein: <span id="protein_g"></span></li>
+                <li>Carbohydrate: <span id="carbohydrate_g"></span></li>
+                <li>Fiber: <span id="fiber_g"></span></li>
+                <li>Sugars: <span id="sugars_g"></span></li>
+                <li>Glucose: <span id="glucose_g"></span></li>
+                <li>Lactose: <span id="lactose_g"></span></li>
+                <li>Sucrose: <span id="sucrose_g"></span></li>
+                <li>Alcohol: <span id="alcohol_g"></span></li>
+                <li>Caffeine: <span id="caffeine_mg"></span></li>
+                <li>Water: <span id="water_g"></span></li>
+            </ul>
+        </div>
     </div>
 </body>
 <script src="{{url_for('static', filename='js/calculator.js')}}"></script>
