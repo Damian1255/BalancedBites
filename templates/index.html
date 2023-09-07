@@ -42,8 +42,125 @@
     </div>
     <hr>
     <div class="container" id="next-section">
-        <!-- Next section content -->
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h1>About</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="{{url_for('static', filename='img/logo.png')}}" alt="balanced bites" class="about">
+                    </div>
+                </div>
+                <p>
+                    Welcome to BalancedBites, where we simplify healthy living through personalized meal planning. Our
+                    Meal Planner and Calorie Wizard help you make nutritious and delicious food choices. We're your
+                    partners in your journey to a healthier you, offering insights, recipes, and tips. Join us on the
+                    path to balanced living—one bite at a time.</p>
+                <a class="btn btn-primary btn-lg" id="wizard" href="wizard.html" role="button">Try Calorie Wizard</a>
+            </div>
+            <div class="col-md-6">
+                <img src="{{url_for('static', filename='img/laptop.png')}}" alt="balanced bites" class="laptop">
+            </div>
+        </div>
     </div>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="caloriewizard">Calorie Wizard</h1>
+                <input type="text" class="form-control" placeholder="Search for your food...">
+                <div id="food">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>QTY</th>
+                                <th>Item</th>
+                                <th>Carbohydrates</th>
+                                <th>Fats</th>
+                                <th>Protein</th>
+                                <th>Vitamin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Apple</td>
+                                <td>150</td>
+                                <td>4000</td>
+                                <td>6231</td>
+                                <td>422</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Pineapple</td>
+                                <td>200</td>
+                                <td>3000</td>
+                                <td>5432</td>
+                                <td>321</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Orange</td>
+                                <td>100</td>
+                                <td>2000</td>
+                                <td>3210</td>
+                                <td>210</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" id="choice">Get Wizard's Choice</button>
+            </div>
+            <div class="col-md-6" id="receipt">
+                <div class="receipt-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>QTY</th>
+                                <th>Item</th>
+                                <th>Carbohydrates</th>
+                                <th>Fats</th>
+                                <th>Protein</th>
+                                <th>Vitamin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Apple</td>
+                                <td>150</td>
+                                <td>4000</td>
+                                <td>6231</td>
+                                <td>422</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Pineapple</td>
+                                <td>200</td>
+                                <td>3000</td>
+                                <td>5432</td>
+                                <td>321</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Orange</td>
+                                <td>100</td>
+                                <td>2000</td>
+                                <td>3210</td>
+                                <td>210</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>
+                        <strong>Item Count:</strong> 4<br>
+                        <strong>Total:</strong> $100
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 <script src="{{url_for('static', filename='js/app.js')}}"></script>
 
