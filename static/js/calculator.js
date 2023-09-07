@@ -244,7 +244,7 @@ function optimize_items(){
                 
                 if (response.changes_made) {
                     document.getElementById('wiz_title').textContent = "We have made some changes!";
-                    document.getElementById('wiz_amount').textContent = response.changes_count + "change(s) has been made! Your calories have been reduced to " + response.new_cal.toFixed(2) + " cal!";
+                    document.getElementById('wiz_amount').textContent = response.changes_count + " change(s) has been made! Your calories have been reduced to " + response.new_cal.toFixed(2) + " cal!";
                 }
                 else {
                     document.getElementById('wiz_title').textContent = "We couldn't find any changes to make.";
