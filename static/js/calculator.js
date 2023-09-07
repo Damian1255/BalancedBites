@@ -7,7 +7,7 @@ input.addEventListener("keyup", function () {
     p.style.display = "flex";
     if (input.value.length >= 2) {
         p.innerHTML = "<div class='lds-ring'><div></div><div></div><div></div><div></div></div>";
-        
+
         var xhr = new XMLHttpRequest();
         xhr.open('POST', '/search', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
@@ -19,12 +19,14 @@ input.addEventListener("keyup", function () {
                     p.innerHTML = "";
                     for (row of response.data) {                        
                         var span = document.createElement("span");
-                        span.innerHTML = " " + row.name;
+                        span.innerHTML = row.name + " (100 g) ";
                         span.setAttribute("onclick", "add_item(" + row.id + ")");
 
                         span.appendChild(document.createElement("br"))
                         p.appendChild(span);
                     }
+                } else {
+                    p.innerHTML = "No results found.";
                 }
             } else {
                 p.innerHTML = "An Internal error occurred. Please try again later.";
@@ -210,4 +212,28 @@ function remove_item(id) {
         }
     }
     update_item_list();
+}
+
+function optimize_items(){
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/optimize', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.success) {
+                item_list = response.item_list;
+                console.log(response.changes_made)
+                console.log(response.changes_count)
+                update_item_list();
+            } else {
+                alert("Unable to optimize items.");
+            }
+        } else {
+            alert('An Internal error occurred.');
+        }
+    };
+
+    xhr.send(JSON.stringify({item_list: item_list}));
 }
