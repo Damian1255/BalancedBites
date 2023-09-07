@@ -46,18 +46,29 @@ def search():
     else:
         return redirect(url_for('index'))
 
-@app.route('/fetch/<string:ndb_no>', methods=['POST', 'GET'])
-def fetch(ndb_no):
+@app.route('/fetch/<string:id>', methods=['POST', 'GET'])
+def fetch(id):
     # Fetching the data from the database
-    query = f'SELECT * FROM ingredients WHERE id = "{ndb_no}"'
+    query = f'SELECT * FROM ingredients WHERE id = "{id}"'
     results = db.fetch(query)
 
     # Checking if the ingredient exists
     if len(results) == 0:
         return jsonify({'success': False, 'message': 'Ingredient not found'})
 
+    item = {'id': results[0][0], 'name': results[0][1].capitalize(), 'calories_cal': results[0][2],
+             'total_fat_g': results[0][3], 'saturated_fat_g': results[0][4], 'cholesterol_mg': results[0][5],
+             'sodium_mg': results[0][6], 'vitamin_a_iu': results[0][7], 'vitamin_b12_mcg': results[0][8],
+             'vitamin_b6_mg': results[0][9], 'vitamin_c_mg': results[0][10], 'vitamin_d_iu': results[0][11],
+             'vitamin_e_mg': results[0][12], 'vitamin_k_mcg': results[0][13], 'calcium_mg': results[0][14],
+             'iron_mg': results[0][15], 'magnesium_mg': results[0][16], 'potassium_mg': results[0][17],
+             'protein_g': results[0][18], 'carbohydrate_g': results[0][19], 'fiber_g': results[0][20],
+             'sugars_g': results[0][21], 'glucose_g': results[0][22], 'lactose_g': results[0][23],
+             'sucrose_g': results[0][24], 'alcohol_g': results[0][25], 'caffeine_mg': results[0][26],
+             'water_g': results[0][27], 'serving_size_g': 100}
+    
     # Returning the data
-    return jsonify({'success': True, 'data': results[0]})
+    return jsonify({'success': True, 'data': item})
 
 if __name__ == '__main__':
     app.run(debug=True)
