@@ -31,9 +31,9 @@
                 </div>
                 <div class="col-md-12">
                     <div id="item-list">
-                        List is empty. Start by <a href="javascript:void(0);" onclick="document.getElementById('input').focus()">searching</a> for an ingredient.
+                        List is empty. Start by <a href="javascript:void(0);" onclick="document.getElementById('input').focus()">searching</a> for an ingredient!
                     </div>
-                    <button onclick="optimize_items()" class="btn btn-primary btn-lg btn-block" id="choice">Get Wizard's Choice</button>
+                    <button onclick="optimize_items()" disabled="true" class="btn btn-primary btn-lg btn-block" id="choice">Get Wizard's Choice<span style="font-size: 15px;"> (Lowers your calories!)</span></button>
                 </div>
             </div>
             <div class="col-md-4" id="receipt">
@@ -86,7 +86,7 @@
         </div>
     </div>
     <dialog id="wizardDialog">
-        <h2><span id="wiz_title"></span></h2>
+        <h2 style="margin-bottom: 15px;"><span id="wiz_title"></span></h2>
         <p><span id="wiz_amount"></span></p>
         <a onclick="document.getElementById('wizardDialog').close();" aria-label="close" class="x">❌</a>
     </dialog>    
